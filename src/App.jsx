@@ -1,5 +1,7 @@
 
 import './App.css'
+import Navbar from './components/Navbar';
+
 import ticketData from './tickets.json';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -10,7 +12,7 @@ function App() {
 
   return (
     <>
-      
+      <Navbar></Navbar>
     </>
   )
 }
