@@ -4,7 +4,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white border-b sticky top-0 z-50 px-4 md:px-16 py-4">
+    <nav className="bg-white sticky top-0 z-50 px-4 md:px-16 py-4">
     <div className="flex justify-between items-center h-12">
         <div className="flex justify-between items-center h-12 gap-2">
             {/* logo on the left and hamburger for mobile device*/}

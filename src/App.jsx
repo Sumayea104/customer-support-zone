@@ -1,6 +1,7 @@
 
 import './App.css'
 import Navbar from './components/Navbar';
+import Banner from './components/Banner';
 
 import ticketData from './tickets.json';
 
@@ -12,7 +13,10 @@ function App() {
 
   return (
     <>
+    <div className='min-h-screen bg-[#F5F5F5] font-sans'>      
       <Navbar></Navbar>
+      <Banner inProgressCount={0} resolvedCount={0} />
+    </div>
     </>
   )
 }
