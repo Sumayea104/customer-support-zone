@@ -3,7 +3,7 @@ import './App.css'
 import Navbar from './components/Navbar';
 import Banner from './components/Banner';
 import TicketList from './components/TicketList';
-
+import Footer from './components/Footer';
 import ticketsData from './tickets.json';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -25,6 +25,7 @@ function App() {
       <Navbar/>
       <Banner inProgressCount={0} resolvedCount={0} />
       <TicketList/>
+      <Footer/>
     </div>
     </>
   )
