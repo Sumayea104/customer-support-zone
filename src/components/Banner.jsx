@@ -12,13 +12,19 @@ const Banner = ({ inProgressCount, resolvedCount }) => {
         <img 
           src={vector1} 
           alt="" 
-          className="absolute left-10-top-10 w-[150%] h-[150%] object-content-opacity-80 mix-blend-overlay " 
+          className="absolute left-0 top-0 w-auto h-full object-content-opacity-80 mix-blend-overlay pointer-events-none" 
         />
         
         <div className="relative z-10 text-center">
           <h3 className="text-xl font-medium mb-1 opacity-90 tracking-wide">In-Progress</h3>
           <p className="text-7xl font-bold tracking-tighter">{inProgressCount}</p>
         </div>
+
+        <img 
+          src={vector2} 
+          alt="" 
+          className="absolute right-0 bottom-0 w-auto h-full object-content-opacity-80 mix-blend-overlay pointer-events-none" 
+        />
       </div>
       {/* resolved */}
       <div 
@@ -26,14 +32,19 @@ const Banner = ({ inProgressCount, resolvedCount }) => {
         style={{ background: 'linear-gradient(107deg, #54CF68 0%, #00827A 100%)' }} 
       >
         <img 
-          src={vector2} 
+          src={vector1} 
           alt="" 
-          className="absolute right-[-5%] top-[-5%] w-[110%] h-[110%] object-cover opacity-25 mix-blend-overlay pointer-events-none"
-        />
+          className="absolute left-0 top-0 w-auto h-full object-content-opacity-80 mix-blend-overlay pointer-events-none" 
+        /> 
         <div className="relative z-10 text-center">
           <h3 className="text-xl font-medium mb-1 opacity-90 tracking-wide">Resolved</h3>
           <p className="text-7xl font-bold tracking-tighter">{resolvedCount}</p>
         </div>
+        <img 
+          src={vector2} 
+          alt="" 
+          className="absolute right-0 bottom-0 w-auto h-full object-content-opacity-80 mix-blend-overlay pointer-events-none" 
+        />
       </div>
 
     </div>
