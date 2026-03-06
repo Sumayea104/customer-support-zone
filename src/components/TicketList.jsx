@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 
 const TicketList = ({ tickets, onSelect, taskStatus, onComplete, resolvedTasks }) => {
   const [visibleCount, setVisibleCount] = useState(10);
-
+  // eslint-disable-next-line no-unused-vars
+  const handleSeeMore = () => {
+    setVisibleCount(
+      prevCount => prevCount + 5
+    );
+  };
   return (
     <div className="bg-[#F5F5F5] px-4 md:px-16 py-8">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-        
-        {/* বাম পাশ: Customer Tickets (২ কলাম গ্রিড) */}
         <div className="lg:col-span-2 order-2 lg:order-1">
           <h2 className="text-2xl font-bold text-[#001931] mb-6">Customer Tickets</h2>
           
@@ -18,7 +21,7 @@ const TicketList = ({ tickets, onSelect, taskStatus, onComplete, resolvedTasks }
                 onClick={() => onSelect(ticket)}
                 className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between cursor-pointer hover:shadow-md transition-all h-full"
               >
-                {/* কার্ডের কন্টেন্ট (ফিগমা অনুযায়ী) */}
+                
                 <div className="flex justify-between items-start mb-3 gap-2">
                   <h3 className="font-bold text-[#001931] text-[16px] leading-tight flex-1">{ticket.title}</h3>
                   <span className={`text-[10px] font-bold px-2 py-1 rounded-full ${ticket.status === 'Open' ? 'text-[#02A53B] bg-[#E6F6EC]' : 'text-[#FEBB0C] bg-[#FFF8E6]'}`}>
@@ -26,18 +29,19 @@ const TicketList = ({ tickets, onSelect, taskStatus, onComplete, resolvedTasks }
                   </span>
                 </div>
                 <p className="text-[#627382] text-[12px] mb-5 line-clamp-2">{ticket.description}</p>
+                
                 <div className="flex justify-between items-center text-[10px] font-bold border-t border-gray-50 pt-3">
+                  <span className='text-gray-400'>#{ticket.id}</span>
                   <span className="text-[#F83044]">{ticket.priority}</span>
                   <div className="flex gap-2 text-[#627382]">
-                    <span>{ticket.customerName}</span>
-                    <span>📅 {ticket.date}</span>
+                    <span>{ticket.customer}</span>
+                    <span>📅 {ticket.createdAt}</span>
                   </div>
                 </div>
+                
               </div>
             ))}
           </div>
-
-          {/* See More বাটন */}
           {visibleCount < tickets.length && (
             <div className="flex justify-center mt-10">
               <button onClick={() => setVisibleCount(visibleCount + 5)} className="bg-[#001931] text-white px-8 py-3 rounded-full font-bold">
@@ -46,8 +50,6 @@ const TicketList = ({ tickets, onSelect, taskStatus, onComplete, resolvedTasks }
             </div>
           )}
         </div>
-
-        {/* ডান পাশ: একের নিচে এক প্যানেল */}
         <div className="lg:col-span-1 order-1 lg:order-2 flex flex-col gap-6">
           
           {/* ১. Task Status */}
@@ -64,12 +66,9 @@ const TicketList = ({ tickets, onSelect, taskStatus, onComplete, resolvedTasks }
               )}
             </div>
           </div>
-
-          {/* ২. Resolved Task Section (Task Status এর নিচে) */}
 <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
   <div className="flex justify-between items-center mb-6">
     <h2 className="text-xl font-bold text-[#001931]">Resolved Task</h2>
-    {/* একটি ছোট ব্যাজ যা মোট সংখ্যা দেখাবে */}
     <span className="bg-[#E6F6EC] text-[#02A53B] text-[10px] font-bold px-2 py-0.5 rounded-full">
       {resolvedTasks.length} Completed
     </span>
@@ -82,7 +81,6 @@ const TicketList = ({ tickets, onSelect, taskStatus, onComplete, resolvedTasks }
           key={t.id} 
           className="flex items-center gap-4 p-4 bg-[#F8FAFC] rounded-xl border border-gray-50 hover:border-green-100 transition-all group"
         >
-          {/* গ্রিন সার্কেল আইকন (লাইন কাটার বদলে) */}
           <div className="w-8 h-8 rounded-full bg-[#E6F6EC] flex items-center justify-center shrink-0">
             <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M16.6666 5L7.49992 14.1667L3.33325 10" stroke="#02A53B" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>

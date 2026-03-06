@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Navbar = () => {
+const Navbar = ({onNewTicket}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -16,7 +16,7 @@ const Navbar = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
             </svg>
         </button>
-        <div className="text-lg md:text-xl font-bold text-gray-800 flex-shrink-0">
+        <div className="text-lg md:text-xl font-bold text-gray-800 shrink-0">
         CS — Ticket System
         </div>
         </div>
@@ -35,7 +35,7 @@ const Navbar = () => {
         </ul>
 
           {/* New Ticket Button with Gradient (#422AD5) */}
-        <button className="bg-linear-to-r from-[#422AD5] to-[#6D28D9] hover:opacity-90 text-white px-4 py-2 md:px-6 md:py-2.5 rounded-lg text-xs md:text-sm font-semibold transition-all shadow-md shrink-0">
+        <button onClick={onNewTicket} className="bg-linear-to-r from-[#422AD5] to-[#6D28D9] hover:opacity-90 text-white px-4 py-2 md:px-6 md:py-2.5 rounded-lg text-xs md:text-sm font-semibold transition-all shadow-md shrink-0">
             + New Ticket
         </button>
         </div>
@@ -52,7 +52,7 @@ const Navbar = () => {
         </ul>
     </div>
     </nav>
-  );
+    );
 };
 
 export default Navbar;
