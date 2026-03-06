@@ -10,15 +10,12 @@ const NewTicketModal = ({ isOpen, onClose, onAdd }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Shudhu input deya data gulo pathiye dichchi
     onAdd({
       title,
       description: desc,
       customerName: customer,
       priority
     });
-    
-    // Form Reset
     setTitle(''); setDesc(''); setCustomer('');
     onClose();
   };
@@ -29,11 +26,10 @@ const NewTicketModal = ({ isOpen, onClose, onAdd }) => {
         <h2 className="text-2xl font-bold text-[#001931] mb-6">Create New Ticket</h2>
         
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Customer Name Field */}
           <div>
             <label className="block text-[10px] font-bold text-gray-400 uppercase mb-1">Customer Name</label>
             <input required type="text" value={customer} onChange={(e) => setCustomer(e.target.value)} 
-              className="w-full p-3 bg-gray-50 rounded-xl border-none outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g. Abir Khan" />
+              className="w-full p-3 bg-gray-50 rounded-xl border-none outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g. Shahara Khatun" />
           </div>
 
           {/* Priority Dropdown */}

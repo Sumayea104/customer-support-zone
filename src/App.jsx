@@ -22,13 +22,17 @@ function App() {
   };
 
   const handleAddTicket = (newTicketData) => {
-  const newId = tickets.length + 1;
+  const newId = tickets.length > 0 ?
+  Math.max(...tickets.map(t => t.id)) + 1:1001;
   
   const finalTicket = {
-    ...newTicketData,
     id: newId, 
+    title:newTicketData.title,
     status: "Open",
-    date: new Date().toLocaleDateString()
+    description:newTicketData.description,
+    priority:newTicketData.priority,
+    customer:newTicketData.customer,
+    createdAt: new Date().toLocaleDateString()
   };
 
   setTickets([finalTicket, ...tickets]);
